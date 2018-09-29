@@ -1,0 +1,21 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.flex {
+    flex: 1;
+}
+mat-toolbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+}
+mat-sidenav-container {
+    margin-top: 67px;
+    background-color: burlywood;
+}
+mat-sidenav{
+    width: 20%;
+}
