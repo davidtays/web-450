@@ -34,9 +34,13 @@ import { Component, OnInit } from '@angular/core';
   `]
 })
 export class LoginComponent implements OnInit {
-
+  text = 'login page'
+  submitted = false;
   constructor() { }
-
+  onSubmit(formData){
+    console.log(formData);
+    this.submitted = true;
+  }
   ngOnInit() {
   }
 

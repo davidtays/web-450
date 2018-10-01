@@ -2,20 +2,43 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+    
 }
 .flex {
     flex: 1;
 }
 mat-toolbar{
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     width: 100% !important;
 }
 mat-sidenav-container {
-    margin-top: 67px;
-    background-color: burlywood;
+    margin-top: 150px;
+    
+}
+.mat-icon.md-64 {
+  font-size: 64px;
 }
 mat-sidenav{
     width: 20%;
+    background-color: rgb(174, 188, 250);
+}
+footer{
+    height: 200px;
+    background-color: rgb(174, 188, 250);
+}
+img{
+    padding: 0;
+    width: 30%;
+    margin: 10px 24px 10px 24px;
+}
+.large-font{
+    font-size: 45px;
+    min-width: 200px;
+    min-height: 48px;
+    text-align: left;
+}
+.mat-button{
+    height: 100px;
 }

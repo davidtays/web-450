@@ -10,7 +10,11 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ LoginComponent ]
     })
-    .compileComponents();
+    .compileComponents().then(() => {
+      fixture = TestBed.createComponent(LoginComponent);
+      component = fixture.componentInstance;
+
+    });
   }));
 
   beforeEach(() => {
@@ -22,4 +26,10 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it("should have as text 'login page'", async(() => {
+    expect(component.text).toEqual('login page');
+  }));
+
+
 });
