@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { QuizModule } from './quiz/quiz.module';
-import { LoginComponent } from './app/login/login.component';
+import { LoginComponent } from './login/login.component';
 
 import { MatButtonModule, MatIconModule, MatMenuModule, MatToolbarModule, MatCardModule, MatFormFieldModule, MatInputModule } from "@angular/material";
 import { FlexLayoutModule } from "@angular/flex-layout";
