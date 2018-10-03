@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 
       <video controls autoplay reload="none" style="width:1000px;"> 
 
-          <source src="../assets/SOA_and_ESB.mp4" type="video/mp4" /> 
+          <source src="../../../assets/SOA_and_ESB.mp4" type="video/mp4" /> 
 
       </video> 
 

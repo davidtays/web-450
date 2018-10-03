@@ -1,0 +1,27 @@
+import {RouterModule, Routes} from '@angular/router';
+import {CommonModule } from '@angular/common';
+import { QuizModule } from './quiz/quiz.module';
+import { LoginComponent } from './login/login.component';
+import { QuizComponent } from './quiz/quiz/quiz.component';
+import { PresentationComponent } from './quiz/presentation/presentation.component';
+import { SummaryComponent } from './quiz/summary/summary.component';
+import { NgModule } from '@angular/core';
+
+const routes: Routes = [
+    {path: '', component: LoginComponent},
+    {path: 'slides', component: PresentationComponent},
+    {path: 'quiz', component: QuizComponent},
+    {path: 'summary', component: SummaryComponent},
+]
+
+@NgModule({
+    imports: [
+        CommonModule,
+        RouterModule.forRoot(routes, {useHash: true})
+    ],
+    exports: [
+        RouterModule
+    ],
+    declarations:[]
+})
+export class AppRoutingModule{}
