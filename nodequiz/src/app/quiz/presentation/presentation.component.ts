@@ -16,9 +16,7 @@ import { Component, OnInit } from '@angular/core';
   </mat-card-content>
 
   <mat-card-footer>
-    <form>
-      <button routerLink="/quiz" mat-raised-button type='submit' >Take the Quiz</button>
-    </form>
+    <button routerLink="/quiz" mat-raised-button type='submit' >Take the Quiz</button>
   </mat-card-footer>
 
 </mat-card>

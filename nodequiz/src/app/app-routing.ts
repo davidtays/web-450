@@ -14,7 +14,7 @@ const routes: Routes = [
     {path: 'quiz', component: QuizComponent},
     {path: 'summary', component: SummaryComponent},
     {path: 'select', component: QuizModule, children:[{path:'quiz', component: QuizSelectionComponent}]}
-]
+];
 
 @NgModule({
     imports: [

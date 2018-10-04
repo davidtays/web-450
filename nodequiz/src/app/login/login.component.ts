@@ -3,6 +3,15 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-login',
   template: `
+  <mat-card class="greeting"> 
+
+    <mat-card-content> 
+
+      <h1>Welcome to the quiz portal.  Make yourself comfortable and take part in a quiz of your choosing.  Once logged in, you will be presented with a selection of quizzes.  Each quiz comes with a presentation that will 'brush you up' on the subject, before the quiz takes place.</h1>
+
+    </mat-card-content>
+
+  </mat-card>
   <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">    
       <div class="frm-login">
         <mat-card class="login-panel form-login-panel">
@@ -21,16 +30,21 @@ import { Component, OnInit } from '@angular/core';
 
           <mat-card-actions class="frm-login-actions">
             <button mat-raised-button class="btn-login">Cancel</button>
-            <button routerLink="/select" mat-raised-button class="btn-login" type='submit' (click)="onSubmit()">Sign In</button>
+            <button mat-raised-button class="btn-login" type='submit' (click)="onSubmit()"  routerLink="/select">Sign In</button>
           </mat-card-actions>
         </mat-card>
       </div>
   </form>
   `,
   styles: [`
+  .greeting{
+    width: 50%;
+    margin: 20px auto;
+  }
   .frm-login { 
-    width: 70%; 
-    margin: 200px auto 0 auto;
+    width: 30%; 
+    margin: 20px auto 0 auto;
+    text-align: center;
   }    
   `]
 })
