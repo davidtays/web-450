@@ -14,14 +14,14 @@ import { Component, OnInit } from '@angular/core';
 
           <mat-card-content class="frm-login-body">
             <mat-form-field>
-              <input type="text" name="userId" matInput placeholder="Enter Your Employee ID" ngModel>
+              <input type="text" name="userId" matInput placeholder="Enter Your Employee ID" [(ngModel)]="employeeId" pattern="^[a-z]{2}[0-9]{4}$">
             </mat-form-field>      
           </mat-card-content>
           
 
           <mat-card-actions class="frm-login-actions">
             <button mat-raised-button class="btn-login">Cancel</button>
-            <button mat-raised-button class="btn-login" type='submit'>Sign In</button>
+            <button routerLink="/select" mat-raised-button class="btn-login" type='submit' (click)="onSubmit()">Sign In</button>
           </mat-card-actions>
         </mat-card>
       </div>
@@ -30,18 +30,37 @@ import { Component, OnInit } from '@angular/core';
   styles: [`
   .frm-login { 
     width: 70%; 
-    margin: 200px auto 0 auto;    
+    margin: 200px auto 0 auto;
+  }    
   `]
 })
 export class LoginComponent implements OnInit {
   text = 'login page'
   submitted = false;
+  employeeId: string;
   constructor() { }
-  onSubmit(formData){
-    console.log(formData);
-    this.submitted = true;
-  }
+  
   ngOnInit() {
   }
+
+  onSubmit(formData){
+    console.log(formData);
+    if (this.checkId(this.employeeId)){
+      this.submitted = true;
+      console.log(this.employeeId + ' is logged in');
+    }
+  }
+
+  checkId(id: string){
+    let loginRegex = RegExp('^[a-z]{2}[0-9]{4}$');
+    if (id.length == 6 && loginRegex.test(id)) {//password is legit if 6 digits
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+
 
 }

@@ -29,9 +29,8 @@ footer{
     background-color: rgb(174, 188, 250);
 }
 img{
-    padding: 0;
-    width: 30%;
-    margin: 10px 24px 10px 24px;
+    width: 30vw;
+    margin: auto 2vw;
 }
 .large-font{
     font-size: 45px;

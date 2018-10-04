@@ -9,13 +9,17 @@ import { Component, OnInit } from '@angular/core';
 
       <video controls autoplay reload="none" style="width:1000px;"> 
 
-          <source src="../../../assets/SOA_and_ESB.mp4" type="video/mp4" /> 
+          <source src="../../../assets/SOA and ESB.mp4" type="video/mp4" /> 
 
       </video> 
 
   </mat-card-content>
 
-  <mat-card-footer><a href="./quiz/quiz.component.ts">Take Quiz Now</a></mat-card-footer> 
+  <mat-card-footer>
+    <form>
+      <button routerLink="/quiz" mat-raised-button type='submit' >Take the Quiz</button>
+    </form>
+  </mat-card-footer>
 
 </mat-card>
   `,
