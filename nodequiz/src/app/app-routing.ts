@@ -13,7 +13,7 @@ const routes: Routes = [
     {path: 'present', component: PresentationComponent},
     {path: 'quiz', component: QuizComponent},
     {path: 'summary', component: SummaryComponent},
-    {path: 'select', component: QuizModule, children:[{path:'quiz', component: QuizSelectionComponent}]}
+    {path: 'select', component: QuizSelectionComponent} //QuizModule, children:[{path:'quiz', component: QuizSelectionComponent}]}
 ];
 
 @NgModule({

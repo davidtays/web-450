@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
   onSubmit(formData){
     console.log(formData);
     if (this.checkId(this.employeeId)){
-      this.submitted = true;
+      //this.submitted = true;
       console.log(this.employeeId + ' is logged in');
     }
   }
@@ -74,7 +74,4 @@ export class LoginComponent implements OnInit {
       return false;
     }
   }
-
-
-
 }
