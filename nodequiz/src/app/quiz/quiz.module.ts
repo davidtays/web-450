@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCardModule, MatToolbarModule } from '@angular/material';
+import { MatCardModule, MatToolbarModule, MatButtonModule } from '@angular/material';
 import { QuizComponent } from './quiz/quiz.component';
 import { PresentationComponent } from './presentation/presentation.component';
 import { SummaryComponent } from './summary/summary.component';
@@ -14,7 +14,8 @@ import {RouterModule, Routes} from '@angular/router';
     MatCardModule,
     RouterModule,
     MatToolbarModule,
-    QuizRoutingModule
+    QuizRoutingModule,
+    MatButtonModule
   ],
   declarations: [QuizComponent, PresentationComponent, SummaryComponent, QuizSelectionComponent]
 })

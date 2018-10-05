@@ -9,11 +9,7 @@ import { NgModule } from '@angular/core';
 import { QuizSelectionComponent } from './quiz/quiz-selection/quiz-selection.component';
 
 const routes: Routes = [
-    {path: '', component: LoginComponent},
-    {path: 'present', component: PresentationComponent},
-    {path: 'quiz', component: QuizComponent},
-    {path: 'summary', component: SummaryComponent},
-    {path: 'select', component: QuizSelectionComponent} //QuizModule, children:[{path:'quiz', component: QuizSelectionComponent}]}
+    {path: 'select', component: QuizModule} //QuizModule, children:[{path:'quiz', component: QuizSelectionComponent}]}
 ];
 
 @NgModule({

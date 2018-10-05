@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
     </mat-card-content>
 
   </mat-card>
-  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">    
+  <form #f="ngForm" (ngSubmit)="onSubmit()">    
       <div class="frm-login">
         <mat-card class="login-panel form-login-panel">
           <mat-card-header class="frm-login-header">
@@ -30,7 +31,7 @@ import { Component, OnInit } from '@angular/core';
 
           <mat-card-actions class="frm-login-actions">
             <button mat-raised-button class="btn-login">Cancel</button>
-            <button mat-raised-button class="btn-login" type='submit' (click)="onSubmit()"  routerLink="/select">Sign In</button>
+            <button mat-raised-button class="btn-login" type='submit' >Sign In</button>
           </mat-card-actions>
         </mat-card>
       </div>
@@ -52,7 +53,7 @@ export class LoginComponent implements OnInit {
   text = 'login page'
   submitted = false;
   employeeId: string;
-  constructor() { }
+  constructor(public router: Router) { }
   
   ngOnInit() {
   }
@@ -60,8 +61,9 @@ export class LoginComponent implements OnInit {
   onSubmit(formData){
     console.log(formData);
     if (this.checkId(this.employeeId)){
-      //this.submitted = true;
+      this.submitted = true;
       console.log(this.employeeId + ' is logged in');
+      this.router.navigate(['/select'])//, this.employeeId
     }
   }
 
