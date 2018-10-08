@@ -3,16 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  template: `
-  <mat-card class="greeting"> 
-
-    <mat-card-content> 
-
-      <h1>Welcome to the quiz portal.  Make yourself comfortable and take part in a quiz of your choosing.  Once logged in, you will be presented with a selection of quizzes.  Each quiz comes with a presentation that will 'brush you up' on the subject, before the quiz takes place.</h1>
-
-    </mat-card-content>
-
-  </mat-card>
+  template: `  
   <form #f="ngForm" (ngSubmit)="onSubmit()">    
       <div class="frm-login">
         <mat-card class="login-panel form-login-panel">
@@ -30,7 +21,6 @@ import { Router } from '@angular/router';
           
 
           <mat-card-actions class="frm-login-actions">
-            <button mat-raised-button class="btn-login">Cancel</button>
             <button mat-raised-button class="btn-login" type='submit' >Sign In</button>
           </mat-card-actions>
         </mat-card>
@@ -38,10 +28,7 @@ import { Router } from '@angular/router';
   </form>
   `,
   styles: [`
-  .greeting{
-    width: 50%;
-    margin: 20px auto;
-  }
+  
   .frm-login { 
     width: 30%; 
     margin: 20px auto 0 auto;

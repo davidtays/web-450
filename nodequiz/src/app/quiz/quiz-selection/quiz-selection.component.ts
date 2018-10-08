@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
     <h1>Quiz 1 is a blah blah blah, and based on blah blah blah. Quiz 2 is a blah blah blah, and based on blah blah blah.  Quiz 3 is a blah blah blah, and based on blah blah blah.  Quiz 1, 2, and 3 is a blah blah blah, and based on blah blah blah.  Choose wisely!</h1>
   </mat-card-header>
   <mat-card-content>
-    <button mat-raised-button color="primary">Quiz 3</button>
-    <button mat-raised-button color="accent">Quiz 3</button>
-    <button mat-raised-button color="warn">Quiz 3</button>
+    <button mat-raised-button routerLink="/present" color="primary">Quiz 3</button>
+    <button mat-raised-button routerLink="/present" color="accent">Quiz 3</button>
+    <button mat-raised-button routerLink="/present" color="warn">Quiz 3</button>
   </mat-card-content>
 </mat-card>
   `,

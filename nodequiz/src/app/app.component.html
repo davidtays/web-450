@@ -1,12 +1,16 @@
 <mat-toolbar class="menu" role="header" color="primary" style="min-height: 150px;">
   <mat-toolbar-row>
-    <button mat-button class="toolbar__icon-button mat-button">
-      <mat-icon class="md-64">home</mat-icon>
+      <span class="large-font">Nodequiz</span>
+    <button mat-button class="mat-button med-font" routerLink="/">
+      Home
     </button>
-    <button mat-button class="mat-button large-font">
+    <button mat-button class="mat-button med-font" routerLink="/quiz">
       Quiz
     </button>
-    <button mat-button class="mat-button large-font">
+    <button mat-button class="mat-button med-font" routerLink="/login">
+      Login
+    </button>
+    <button mat-button class="mat-button med-font" routerLink="/summary">
       Summary 
     </button>
     
@@ -20,23 +24,26 @@
     </mat-menu>
   </mat-toolbar-row>  
 </mat-toolbar>
-
 <div class="wrapper">
   <router-outlet></router-outlet>
+  <div class="flex"></div>
 </div>
 
 <footer>
     <div id="interests1" class="row">
 
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <img mat-card-image src="./assets/Meanstack.jpg" alt="Photo of Meanstack"> 
       </div> 
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <img mat-card-image src="./assets/Meanstack.jpg" alt="Photo of Meanstack"> 
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <img mat-card-image src="./assets/Meanstack.jpg" alt="Photo of Meanstack"> 
       </div> 
+      <div class="col-sm-3">
+          <img mat-card-image src="./assets/Meanstack.jpg" alt="Photo of Meanstack"> 
+        </div>
     </div>
 </footer>
 

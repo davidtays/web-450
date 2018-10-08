@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 
   <mat-card-content> 
 
-      <video controls autoplay reload="none" style="width:1000px;"> 
+      <video controls autoplay reload="none"> 
 
           <source src="../../../assets/SOA and ESB.mp4" type="video/mp4" /> 
 
@@ -21,7 +21,13 @@ import { Component, OnInit } from '@angular/core';
 
 </mat-card>
   `,
-  styleUrls: ['./presentation.component.css']
+  styles: [`
+    video{
+      display: block;
+      width: 1000px;
+      margin: auto;
+    }
+  `]
 })
 export class PresentationComponent implements OnInit {
 
