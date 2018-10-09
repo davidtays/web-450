@@ -31,7 +31,7 @@ import { Router } from '@angular/router';
   
   .frm-login { 
     width: 30%; 
-    margin: 20px auto 0 auto;
+    margin: 20px auto 100px auto;
     text-align: center;
   }    
   `]
