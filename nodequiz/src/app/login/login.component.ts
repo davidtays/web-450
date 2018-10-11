@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 
           <mat-card-content class="frm-login-body">
             <mat-form-field>
-              <input type="text" name="userId" matInput placeholder="Enter Your Employee ID" [(ngModel)]="employeeId" pattern="^[a-z]{2}[0-9]{4}$">
+              <input type="text" name="employeeId" matInput placeholder="Enter Your Employee ID" [(ngModel)]="employeeId" pattern="^[a-z]{2}[0-9]{4}$">
             </mat-form-field>      
           </mat-card-content>
           
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
     if (this.checkId(this.employeeId)){
       this.submitted = true;
       console.log(this.employeeId + ' is logged in');
-      this.router.navigate(['/select'])//, this.employeeId
+      this.router.navigate(['/select', this.employeeId])
     }
   }
 

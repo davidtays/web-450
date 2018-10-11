@@ -16,6 +16,7 @@ import {
   MatSidenavModule
 } from '@angular/material/sidenav';
 import { HomeComponent } from './home/home.component';
+import { LoggedInRouteGuardService } from './services/logged-in-route-guard.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,7 @@ import { HomeComponent } from './home/home.component';
     RouterModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [LoggedInRouteGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
