@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-quiz-selection',
@@ -37,12 +38,13 @@ import { Router } from '@angular/router';
 })
 export class QuizSelectionComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  constructor(private http: HttpClient, public router: Router) { }
   onSubmit(formData){
     console.log(formData);
     if (formData.name == "1"){
       console.log(formData.name + ' is the quiz selected');
-      this.router.navigate(['/select']);//, this.employeeId ****************How do I call the controller from here?*****************************
+      //this.router.navigate(['/select']);//, this.employeeId ****************How do I call the controller from here?*****************************
+      this.http.post('/api/login', formData.name).subscribe(res => { this.router.navigate(['/select']), (err) => {console.log(err)}})
     }
   }
   ngOnInit() {

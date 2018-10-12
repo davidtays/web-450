@@ -17,6 +17,7 @@ import {
 } from '@angular/material/sidenav';
 import { HomeComponent } from './home/home.component';
 import { LoggedInRouteGuardService } from './services/logged-in-route-guard.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { LoggedInRouteGuardService } from './services/logged-in-route-guard.serv
     FlexLayoutModule,
     QuizModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [LoggedInRouteGuardService],
   bootstrap: [AppComponent]

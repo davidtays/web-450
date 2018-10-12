@@ -8,6 +8,7 @@ import { QuizSelectionComponent } from './quiz-selection/quiz-selection.componen
 import { QuizRoutingModule} from './quiz-routing';
 import {RouterModule, Routes} from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     MatToolbarModule,
     QuizRoutingModule,
     MatButtonToggleModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpModule
   ],
   declarations: [QuizComponent, PresentationComponent, SummaryComponent, QuizSelectionComponent]
 })

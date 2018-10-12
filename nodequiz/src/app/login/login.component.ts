@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-//import { Router } from '../../../server/controllers/homeController';
+import { HttpClient } from '@angular/common/http';//import { Router } from '../../../server/controllers/homeController';
 @Component({
   selector: 'app-login',
   template: `  
@@ -40,17 +40,18 @@ export class LoginComponent implements OnInit {
   text = 'login page'
   submitted = false;
   employeeId: string;
-  constructor(public router: Router) { }
+  constructor(public router: Router, private http: HttpClient) { }
   
   ngOnInit() {
   }
-
+  //employee: any;
   onSubmit(formData){
     console.log(formData);
     if (this.checkId(this.employeeId)){
       this.submitted = true;
       console.log(this.employeeId + ' is logged in');
-      this.router.navigate(['/select']);//, this.employeeId
+      this.http.post('/api/login', this.employeeId).subscribe(res => { this.router.navigate(['/select']), (err) => {console.log(err)}})
+      //this.http.get('api/employees/nq1234').subscribe(data => { this.employee = data;})
     }
   }
 
