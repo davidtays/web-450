@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz-selection',
@@ -8,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
     <h1>Quiz 1 is a blah blah blah, and based on blah blah blah. Quiz 2 is a blah blah blah, and based on blah blah blah.  Quiz 3 is a blah blah blah, and based on blah blah blah.  Quiz 1, 2, and 3 is a blah blah blah, and based on blah blah blah.  Choose wisely!</h1>
   </mat-card-header>
   <mat-card-content>
-    <button mat-raised-button routerLink="/present" color="primary">Quiz 3</button>
-    <button mat-raised-button routerLink="/present" color="accent">Quiz 3</button>
-    <button mat-raised-button routerLink="/present" color="warn">Quiz 3</button>
+   <form #f="ngForm" (ngSubmit)="onSubmit()">    
+    <button mat-raised-button name="1" routerLink="/present" color="primary">Quiz 1</button>
+    <button mat-raised-button name="2" routerLink="/present" color="accent">Quiz 2</button>
+    <button mat-raised-button name="3" routerLink="/present" color="warn">Quiz 3</button>
+   </form>
   </mat-card-content>
 </mat-card>
   `,
@@ -34,8 +37,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizSelectionComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public router: Router) { }
+  onSubmit(formData){
+    console.log(formData);
+    if (formData.name == "1"){
+      console.log(formData.name + ' is the quiz selected');
+      this.router.navigate(['/select']);//, this.employeeId ****************How do I call the controller from here?*****************************
+    }
+  }
   ngOnInit() {
   }
 

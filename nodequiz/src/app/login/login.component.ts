@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+//import { Router } from '../../../server/controllers/homeController';
 @Component({
   selector: 'app-login',
   template: `  
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
     if (this.checkId(this.employeeId)){
       this.submitted = true;
       console.log(this.employeeId + ' is logged in');
-      this.router.navigate(['/select', this.employeeId])
+      this.router.navigate(['/select']);//, this.employeeId
     }
   }
 

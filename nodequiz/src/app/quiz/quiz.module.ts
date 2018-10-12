@@ -7,10 +7,12 @@ import { SummaryComponent } from './summary/summary.component';
 import { QuizSelectionComponent } from './quiz-selection/quiz-selection.component';
 import { QuizRoutingModule} from './quiz-routing';
 import {RouterModule, Routes} from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     MatFormFieldModule,
     MatCardModule,
     MatIconModule,

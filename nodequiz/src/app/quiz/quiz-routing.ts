@@ -12,10 +12,10 @@ import { LoggedInRouteGuardService } from '../services/logged-in-route-guard.ser
 const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'present', component: PresentationComponent, canActivate:[LoggedInRouteGuardService]},
-    {path: 'quiz', component: QuizComponent, canActivate:[LoggedInRouteGuardService]},
-    {path: 'summary', component: SummaryComponent, canActivate:[LoggedInRouteGuardService]},
-    {path: 'select:_id', component: QuizSelectionComponent, canActivate:[LoggedInRouteGuardService]}
+    {path: 'present', component: PresentationComponent},//, canActivate:[LoggedInRouteGuardService]
+    {path: 'quiz', component: QuizComponent},//, canActivate:[LoggedInRouteGuardService]
+    {path: 'summary', component: SummaryComponent},//, canActivate:[LoggedInRouteGuardService]
+    {path: 'select', component: QuizSelectionComponent}//, canActivate:[LoggedInRouteGuardService]
 ];
 
 @NgModule({
