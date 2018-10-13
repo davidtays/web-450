@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
   text = 'login page'
   submitted = false;
   employeeId: any;
-  constructor(public router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient) { }
   
   ngOnInit() {
   }
@@ -51,14 +51,14 @@ export class LoginComponent implements OnInit {
     if (this.checkId(formData.employeeId)){
       this.submitted = true;
       console.log(formData.employeeId + ' is logged in');
-      this.http.post('/api/login', formData.employeeId).subscribe(res => { this.router.navigate(['/select']), (err) => {console.log(err)}})
+      this.http.post('/api/login', {employeeId: formData.employeeId}).subscribe(res => { this.router.navigate(['/select'], res), (err) => {console.log(err)}})
       //this.http.get('api/employees/nq1234').subscribe(data => { this.employee = data;})
     }
   }
 
   checkId(id: string){
     let loginRegex = RegExp('^[a-z]{2}[0-9]{4}$');
-    if (id.length == 6 && loginRegex.test(id)) {//password is legit if 6 digits
+    if (id.length == 6) {//password is legit if 6 digits// && loginRegex.test(id)
       return true;
     }
     else{
