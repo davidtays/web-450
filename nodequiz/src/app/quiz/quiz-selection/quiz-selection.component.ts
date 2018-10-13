@@ -38,13 +38,23 @@ import { Router } from '@angular/router'
 })
 export class QuizSelectionComponent implements OnInit {
 
-  constructor(private http: HttpClient, public router: Router) { }
+  constructor(private http: HttpClient, private router: Router) { }
   onSubmit(formData){
     console.log(formData);
     if (formData.name == "1"){
       console.log(formData.name + ' is the quiz selected');
       //this.router.navigate(['/select']);//, this.employeeId ****************How do I call the controller from here?*****************************
-      this.http.post('/api/login', formData.name).subscribe(res => { this.router.navigate(['/select']), (err) => {console.log(err)}})
+      //this.http.post('/api/login', {employeeId: formData.employeeId}).subscribe(res => { this.router.navigate(['/select'], res), (err) => {console.log(err)}})
+    }
+    if (formData.name == "2"){
+      console.log(formData.name + ' is the quiz selected');
+      //this.router.navigate(['/select']);//, this.employeeId ****************How do I call the controller from here?*****************************
+      //this.http.post('/api/login', {employeeId: formData.employeeId}).subscribe(res => { this.router.navigate(['/select'], res), (err) => {console.log(err)}})
+    }
+    if (formData.name == "3"){
+      console.log(formData.name + ' is the quiz selected');
+      //this.router.navigate(['/select']);//, this.employeeId ****************How do I call the controller from here?*****************************
+      //this.http.post('/api/login', {employeeId: formData.employeeId}).subscribe(res => { this.router.navigate(['/select'], res), (err) => {console.log(err)}})
     }
   }
   ngOnInit() {

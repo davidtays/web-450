@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
     if (this.checkId(formData.employeeId)){
       this.submitted = true;
       console.log(formData.employeeId + ' is logged in');
-      this.http.post('/api/login', {employeeId: formData.employeeId}).subscribe(res => { this.router.navigate(['/select'], res), (err) => {console.log(err)}})
+      this.http.post('/api/login', {employeeId: formData.employeeId}).subscribe(res => { this.router.navigate(['/select'/*, res*/]), (err) => {console.log(err)}})
       //this.http.get('api/employees/nq1234').subscribe(data => { this.employee = data;})
     }
   }

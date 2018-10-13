@@ -6,12 +6,12 @@ var config = require('../helpers/config');
 
 exports.employee_login = function(req, res){
   //console.log(req);
-  console.log(req.body.employeeId);
+  console.log(req.body.employeeId + " = req.body.employeeId");
 
-  Employee.getById(req.body.employee, function(err, employee){
-    //console.log(employee + ' = employee');
+  Employee.getById(req.body.employeeId, function(err, employee){
+    console.log(req.body.employeeId + ' = employee');
     
-    res.json(employee)
+    res.json(req.body.employeeId)
     /*console.log(employeeId + ' = employeeId');
     console.log(res.employeeId + ' = res.employeeId');
     console.log(req.params.employeeId + ' = req.params.employeeId');

@@ -9,5 +9,6 @@ const Employee = module.exports = mongoose.model('Employee', employeeSchema);
 
 module.exports.getById = (id, callback) => {
     var query = {employeeId: id};
-    Employee.findOne(query, callback);
+    console.log(id + '= id from the employee model')
+    Employee.findById(query, callback);
 }
