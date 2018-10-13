@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';//import { Router } from '../.
 @Component({
   selector: 'app-login',
   template: `  
-  <form #f="ngForm" (ngSubmit)="onSubmit()">    
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">    
       <div class="frm-login">
         <mat-card class="login-panel form-login-panel">
           <mat-card-header class="frm-login-header">
@@ -45,12 +45,13 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   //employee: any;
-  onSubmit(){
-    console.log();
-    if (this.checkId(this.employeeId)){
+  onSubmit(formData){
+    console.log(formData);
+    console.log(formData.employeeId);
+    if (this.checkId(formData.employeeId)){
       this.submitted = true;
-      console.log(this.employeeId + ' is logged in');
-      this.http.post('/api/login', this.employeeId).subscribe(res => { this.router.navigate(['/select']), (err) => {console.log(err)}})
+      console.log(formData.employeeId + ' is logged in');
+      this.http.post('/api/login', formData.employeeId).subscribe(res => { this.router.navigate(['/select']), (err) => {console.log(err)}})
       //this.http.get('api/employees/nq1234').subscribe(data => { this.employee = data;})
     }
   }
