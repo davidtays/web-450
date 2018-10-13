@@ -8,6 +8,6 @@ var employeeSchema = new mongoose.Schema({
 const Employee = module.exports = mongoose.model('Employee', employeeSchema);
 
 module.exports.getById = (id, callback) => {
-    var query = {employeeId: id};
-    Employee.findById(query, callback);
+    var query = {_id: id};
+    Employee.findOne(query, callback);
 }

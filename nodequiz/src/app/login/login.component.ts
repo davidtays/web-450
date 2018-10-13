@@ -39,14 +39,14 @@ import { HttpClient } from '@angular/common/http';//import { Router } from '../.
 export class LoginComponent implements OnInit {
   text = 'login page'
   submitted = false;
-  employeeId: string;
+  employeeId: any;
   constructor(public router: Router, private http: HttpClient) { }
   
   ngOnInit() {
   }
   //employee: any;
-  onSubmit(formData){
-    console.log(formData);
+  onSubmit(){
+    console.log();
     if (this.checkId(this.employeeId)){
       this.submitted = true;
       console.log(this.employeeId + ' is logged in');
