@@ -1,4 +1,26 @@
-<p>
-  quiz works!
-</p>
+<mat-card>
+    <mat-card-header>
+      <h2>Quiz.{{quiz.quizId}}</h2>
+    </mat-card-header>
+    <mat-card-content>
+    <form #f="ngForm" *ngIf="displayIt" (ngSubmit)="onSubmit(f.value)">
+      <div *ngFor="let item of questions; let i = index" class="question">
+      
+        <p>Question {{i + 1}}: {{item.question}}</p>
+        <mat-radio-group [(ngModel)]="answers[i]" (ngModelChange)="answered()">
 
+        <div *ngFor="let answer of item.answers; let num = index" class="answer"> 
+          <mat-radio-button [value]="answer['a' + num]" class="answer-radio" >{{answer['a' + num]}}</mat-radio-button>
+          <br/>  
+        </div> 
+
+        </mat-radio-group>     
+      </div>
+    
+      <div class="quizbuttons">
+        <button mat-raised-button type="submit" >need to go Submit</button>
+      </div>
+        <br/><br/>
+        </form>
+    </mat-card-content>
+  </mat-card>  

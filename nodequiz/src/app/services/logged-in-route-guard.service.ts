@@ -21,13 +21,13 @@ export class LoggedInRouteGuardService implements CanActivate{
 
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
     console.log();
-    return this.checkLogin(this.redirectUrl);
+    return this.checkLogin(localStorage.getItem('id'));
   }
-  public checkLogin(url: string): boolean {
-    if(this.isLoggedIn){
-      return true;
-    }else{
+  public checkLogin(key: string): boolean {
+    if(key == ''){
       return false;
+    }else{
+      return true;
     }
   }
 }

@@ -19,7 +19,7 @@
       
       <button mat-button [matMenuTriggerFor]="menu"><mat-icon class="md-64">exit_to_app</mat-icon></button>
       <mat-menu #menu="matMenu">        
-        <button mat-menu-item>
+        <button mat-menu-item (click)="onSubmit()">
           <span>Logout</span>
         </button>  
       </mat-menu>

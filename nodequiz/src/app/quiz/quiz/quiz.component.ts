@@ -1,37 +1,42 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-quiz',
   template:  `
   <mat-card>
+
     <mat-card-header>
-      <p>Quiz.#</p>
+      <h2>Quiz.{{quiz.quizId}}</h2>
     </mat-card-header>
+
     <mat-card-content>
-      <div class="needForEach">
-      <p>Nodequiz Time!  Attempt to answer all of the questions to the best of your knowledge, based on the information from the presentation.  this is where the question should be bound</p>
-      <input type="radio" name="optionGroup"><label for="optionGroup">True. This needs to be bound</label>
-      <br/>  
-      <input type="radio" name="optionGroup"><label for="optionGroup">True. This needs to be bound</label>
-      <br/> 
-      <input type="radio" name="optionGroup"><label for="optionGroup">True. This needs to be bound</label>
-      <br/> 
-      <input type="radio" name="optionGroup"><label for="optionGroup">True. This needs to be bound</label>
-      <br/>     
+    
+    <button *ngIf="!displayIt" mat-raised-button type="submit" (click)="toggleQuiz()" ><h2>READY!</h2></button>
+    
+    <form #f="ngForm" *ngIf="displayIt" (ngSubmit)="getAnswers()">
+      <div *ngFor="let item of questions; let i = index" class="question">
+        <p>Question {{i + 1}}: {{item.question}}</p>
+        <mat-radio-group name="group{{i}}" [(ngModel)]="answers[i]" (ngModelChange)="answered()"> 
+
+          <div *ngFor="let answer of item.answers; let num = index" class="answer"> 
+            <mat-radio-button [value]="answer['a' + num]" class="answer-radio" >{{answer['a' + num]}}</mat-radio-button>
+            <br/><br/>  
+          </div>
+
+        </mat-radio-group>     
       </div>
+      <br/><br/>
       <div class="quizbuttons">
         <button mat-raised-button type="submit" >need to go Submit</button>
       </div>
       <br/><br/>
-      <mat-button-toggle-group>
-        <mat-button-toggle class="navigation"><mat-icon class="md-64">chevron_left</mat-icon></mat-button-toggle>
-        <mat-button-toggle>2</mat-button-toggle>
-        <mat-button-toggle>3</mat-button-toggle>
-        <mat-button-toggle>4</mat-button-toggle>
-        <mat-button-toggle class="material-icons"><mat-icon class="md-64">chevron_right</mat-icon></mat-button-toggle>
-      </mat-button-toggle-group>
+    </form>
+
     </mat-card-content>
-  </mat-card> 
+
+  </mat-card>  
   `,
   styles: [`
     button {      
@@ -60,7 +65,6 @@ import { Component, OnInit } from '@angular/core';
     }
     mat-card{
       width: 60%;
-      height: 500px;
       margin: auto; 
       justify-content: center;     
     }
@@ -71,10 +75,41 @@ import { Component, OnInit } from '@angular/core';
   `]
 })
 export class QuizComponent implements OnInit {
+  
+  quiz: any;
+  questions: Array<object>;
+  answers: Array<object>;
+  theAnswers: Array<any>;
+  score: any;
+  displayIt: boolean;
+  
 
-  constructor() { }
+  constructor(private http: HttpClient, private router: Router) {
+    this.http.post('/api/select', {quizId: localStorage.getItem('quizId')}).subscribe(res => { this.quiz = res; this.questions = this.quiz.questions, console.log(res), (err) => {console.log(err)}})
+    }
 
   ngOnInit() {
+    this.answers = [];   
+    this.displayIt = false;
   }
 
+  onSubmit(formData){
+    console.log(formData);
+  }
+
+  toggleQuiz(){
+    if(this.displayIt){
+      this.displayIt = false;
+    }else{
+      this.displayIt = true;
+      this.getAnswers();
+    }
+  }
+  getAnswers(){
+    this.questions.forEach((x) => {
+      x['answers'].forEach((i) => {
+        console.log(i);
+      })
+    })
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';//import { Router } from '../../../server/controllers/homeController';
+import { CookieService } from 'angular2-cookie/core'
 @Component({
   selector: 'app-login',
   template: `  
@@ -40,10 +41,11 @@ export class LoginComponent implements OnInit {
   text = 'login page'
   submitted = false;
   employeeId: any;
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient, private _cookieService:CookieService) { }
   
   ngOnInit() {
   }
+  
   //employee: any;
   onSubmit(formData){
     console.log(formData);
@@ -51,6 +53,11 @@ export class LoginComponent implements OnInit {
     if (this.checkId(formData.employeeId)){
       this.submitted = true;
       console.log(formData.employeeId + ' is logged in');
+
+      localStorage.setItem('id', formData.employeeId);
+      console.log(localStorage.getItem('id') + "=is cookie");
+      //this._cookieService.put('test', formData.employeeId);
+      //console.log(this.getCookie('test') + "=is cookie");
       this.http.post('/api/login', {employeeId: formData.employeeId}).subscribe(res => { this.router.navigate(['/select'/*, res*/]), (err) => {console.log(err)}})
       //this.http.get('api/employees/nq1234').subscribe(data => { this.employee = data;})
     }
@@ -58,7 +65,7 @@ export class LoginComponent implements OnInit {
 
   checkId(id: string){
     let loginRegex = RegExp('^[a-z]{2}[0-9]{4}$');
-    if (id.length == 6) {//password is legit if 6 digits// && loginRegex.test(id)
+    if (id.length == 6 && loginRegex.test(id)) {//password is legit if 6 digits// 
       return true;
     }
     else{

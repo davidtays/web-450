@@ -1,17 +1,18 @@
 var Employee = require('../models/employee');
-var Quiz = require('../models/employee');
+var Quiz = require('../models/quiz');
+var Quizzes = require('../models/quizzes');
 var User = require('../models/employee');
 var config = require('../helpers/config');
 
 
-exports.employee_login = function(req, res){
+exports.employee_login = function(req, res, next){
   //console.log(req);
   console.log(req.body.employeeId + " = req.body.employeeId");
 
   Employee.getById(req.body.employeeId, function(err, employee){
-    console.log(req.body.employeeId + ' = employee');
-    
-    res.json(req.body.employeeId)
+    console.log(employee + ' = employee');
+    if(err) return next(err);
+    res.json(employee);
     /*console.log(employeeId + ' = employeeId');
     console.log(res.employeeId + ' = res.employeeId');
     console.log(req.params.employeeId + ' = req.params.employeeId');
@@ -24,7 +25,17 @@ exports.employee_login = function(req, res){
 };
 
 exports.get_quiz = function(req, res, next) {
-  res.json("get_QUIZ works!")
+  console.log(req + " = req");
+  
+  Quiz.getById(req.body.quizId, function(err, quiz){
+    
+    console.log(req.body.quizId + " = quiz");
+    console.log(quiz.title + " = quizzes")
+    
+    if(err) return next(err);
+    res.json(quiz);
+    console.log(res.json + ' is res.body from get_quiz in controller*****');
+  })
 };
 
 exports.get_user = function(req, res, next) {

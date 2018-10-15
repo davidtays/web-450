@@ -18,6 +18,7 @@ import {
 import { HomeComponent } from './home/home.component';
 import { LoggedInRouteGuardService } from './services/logged-in-route-guard.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
+    FormsModule,     
     MatCardModule,
     MatMenuModule,
     MatSidenavModule,
@@ -42,7 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [LoggedInRouteGuardService],
+  providers: [LoggedInRouteGuardService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
