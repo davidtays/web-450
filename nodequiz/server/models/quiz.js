@@ -7,7 +7,7 @@ var quizSchema = new mongoose.Schema({
         questions: [
             {
                 question: String,
-                correct: Number,
+                correct: String,
                 answers: [
                     {a1: String},
                     {a2: String},
@@ -17,7 +17,7 @@ var quizSchema = new mongoose.Schema({
             },
             {
                 question: String,
-                correct: Number,
+                correct: String,
                 answers: [
                     {a1: String},
                     {a2: String},
@@ -27,7 +27,7 @@ var quizSchema = new mongoose.Schema({
             },
             {
                 question: String,
-                correct: Number,
+                correct: String,
                 answers: [
                     {a1: String},
                     {a2: String},
@@ -37,7 +37,7 @@ var quizSchema = new mongoose.Schema({
             },
             {
                 question: String,
-                correct: Number,
+                correct: String,
                 answers: [
                     {a1: String},
                     {a2: String},
@@ -47,7 +47,7 @@ var quizSchema = new mongoose.Schema({
             },
             {
                 question: String,
-                correct: Number,
+                correct: String,
                 answers: [
                     {a1: String},
                     {a2: String},
@@ -57,7 +57,7 @@ var quizSchema = new mongoose.Schema({
             },
             {
                 question: String,
-                correct: Number,
+                correct: String,
                 answers: [
                     {a1: String},
                     {a2: String},
@@ -67,6 +67,7 @@ var quizSchema = new mongoose.Schema({
             },
             {
                 question: String,
+                correct: String,
                 answers: [
                     {a1: String},
                     {a2: String},
@@ -76,7 +77,7 @@ var quizSchema = new mongoose.Schema({
             },
             {
                 question: String,
-                correct: Number,
+                correct: String,
                 answers: [
                     {a1: String},
                     {a2: String},
@@ -86,7 +87,7 @@ var quizSchema = new mongoose.Schema({
             },
             {
                 question: String,
-                correct: Number,
+                correct: String,
                 answers: [
                     {a1: String},
                     {a2: String},
@@ -96,7 +97,7 @@ var quizSchema = new mongoose.Schema({
             },
             {
                 question: String,
-                correct: Number,
+                correct: String,
                 answers: [
                     {a1: String},
                     {a2: String},

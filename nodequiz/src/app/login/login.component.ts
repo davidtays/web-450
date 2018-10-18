@@ -56,10 +56,9 @@ export class LoginComponent implements OnInit {
 
       localStorage.setItem('id', formData.employeeId);
       console.log(localStorage.getItem('id') + "=is cookie");
-      //this._cookieService.put('test', formData.employeeId);
-      //console.log(this.getCookie('test') + "=is cookie");
+      
       this.http.post('/api/login', {employeeId: formData.employeeId}).subscribe(res => { this.router.navigate(['/select'/*, res*/]), (err) => {console.log(err)}})
-      //this.http.get('api/employees/nq1234').subscribe(data => { this.employee = data;})
+      
     }
   }
 

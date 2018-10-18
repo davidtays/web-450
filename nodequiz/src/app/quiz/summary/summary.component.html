@@ -1,3 +1,8 @@
-<p>
-  summary works!
-</p>
+<mat-form-field>
+  <mat-select placeholder="Favorite user">
+    <mat-option *ngFor="let quiz of quizzes" value="quiz.quizId">
+      {{user.quizId}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+{{user.userId}}

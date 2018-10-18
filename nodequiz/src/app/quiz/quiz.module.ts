@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCardModule, MatToolbarModule, MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatButtonToggleModule, MatIconModule, MatRadioButton, MatRadioGroup, MatRippleModule,} from '@angular/material';
+import { MatCardModule, MatToolbarModule, MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatButtonToggleModule, MatIconModule, MatRadioButton, MatRadioGroup, MatRippleModule, MatOptionModule, MatSelectModule,} from '@angular/material';
 import { QuizComponent } from './quiz/quiz.component';
 import { PresentationComponent } from './presentation/presentation.component';
 import { SummaryComponent } from './summary/summary.component';
@@ -24,7 +24,9 @@ import { HttpModule } from '@angular/http';
     QuizRoutingModule,
     MatButtonToggleModule,
     MatButtonModule,
-    HttpModule
+    HttpModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   declarations: [MatRadioGroup, MatRadioButton, QuizComponent, PresentationComponent, SummaryComponent, QuizSelectionComponent]
 })

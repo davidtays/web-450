@@ -1,7 +1,7 @@
 var Employee = require('../models/employee');
 var Quiz = require('../models/quiz');
 var Quizzes = require('../models/quizzes');
-var User = require('../models/employee');
+var User = require('../models/user');
 var config = require('../helpers/config');
 
 
@@ -10,17 +10,13 @@ exports.employee_login = function(req, res, next){
   console.log(req.body.employeeId + " = req.body.employeeId");
 
   Employee.getById(req.body.employeeId, function(err, employee){
+
     console.log(employee + ' = employee');
-    if(err) return next(err);
     res.json(employee);
-    /*console.log(employeeId + ' = employeeId');
-    console.log(res.employeeId + ' = res.employeeId');
-    console.log(req.params.employeeId + ' = req.params.employeeId');
-    
     res.json(req.employeeId);
     if(err) return res.status(500).send('there was a problem finding the user 1st if in homeController');
-    if(!employeeId) return res.status(404).send('No employeeId found from 2nd if');
-    res.status(200)//.send(employeeId);*/
+    if(!employee.employeeId) return res.status(404).send('No employeeId found from 2nd if');
+    res.status(200)//.send(employeeId);
   })
 };
 
@@ -34,12 +30,29 @@ exports.get_quiz = function(req, res, next) {
     
     if(err) return next(err);
     res.json(quiz);
-    console.log(res.json + ' is res.body from get_quiz in controller*****');
   })
 };
 
 exports.get_user = function(req, res, next) {
-  res.json("get USER works!")
+  console.log(req + "= req from get_user");
+  User.getById(req.body.userId, function(err, user){
+
+    console.log(req.body.userId + "= req.body.userId from get_user");
+    console.log(user + " = user")
+    if(err) return next(err);
+    res.json(user);
+
+  })
+};
+
+exports.update_user_results = function(req, res, next) {
+  console.log(req + "=req from update_user_results");
+  User.saveResults(req.user, function(err, user){
+    if(err) return next(err);
+
+  })
+  
+  res.json("update USER works!")
 };
 
 exports.index = function(req, res, next) {
