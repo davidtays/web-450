@@ -15,7 +15,7 @@ const routes: Routes = [
     {path: 'present', component: PresentationComponent},//
     {path: 'quiz', component: QuizComponent},//
     {path: 'summary', component: SummaryComponent},//, canActivate:[LoggedInRouteGuardService]
-    {path: 'select:quizzes', component: QuizSelectionComponent}//
+    {path: 'select', component: QuizSelectionComponent}//
 ];
 
 @NgModule({

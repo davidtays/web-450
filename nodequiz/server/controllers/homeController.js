@@ -10,7 +10,7 @@ exports.employee_login = function(req, res, next){
   console.log(req.body.employeeId + " = req.body.employeeId");
 
   Employee.getById(req.body.employeeId, function(err, employee){
-
+    
     console.log(employee + ' = employee');
     res.json(employee);
     res.json(req.employeeId);
@@ -33,21 +33,22 @@ exports.get_quiz = function(req, res, next) {
   })
 };
 
-exports.get_user = function(req, res, next) {
+exports.get_all_users = function(req, res, next) {
   console.log(req + "= req from get_user");
-  User.getById(req.body.userId, function(err, user){
+  User.getById(req.body.userId, function(err, allUserResults){
 
-    console.log(req.body.userId + "= req.body.userId from get_user");
-    console.log(user + " = user")
+    console.log(req.body.userId + "= req.body.userId get_all_users get_user");
+    console.log(allUserResults + " = allUserResults")
     if(err) return next(err);
-    res.json(user);
+    res.json(allUserResults);
 
   })
 };
 
 exports.update_user_results = function(req, res, next) {
   console.log(req + "=req from update_user_results");
-  User.saveResults(req.user, function(err, user){
+  console.log(req.body.user + "= req.body.user from update_user_results");
+  User.saveResults(req.body.user, function(err, user){
     if(err) return next(err);
 
   })

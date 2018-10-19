@@ -118,7 +118,9 @@ export class QuizComponent implements OnInit {
       //need popup or alert user that all questions are not answered
       console.log(this.questionsAnswered + " = questions answered");
     }
-    /*this.user = {
+    let userScore = this.score * 10;
+    console.log(this.quiz.title + "=is title1");
+    this.user = {
       userId: localStorage.getItem('id'), 
       quizId: this.quiz.quizId, 
       quizName: this.quiz.title, 
@@ -132,8 +134,9 @@ export class QuizComponent implements OnInit {
       a8: this.groups[7], 
       a9: this.groups[8], 
       a10: this.groups[9],
-      score: this.score * 10 
-    };*/
+      score: userScore 
+    };
+    console.log(this.quiz.title + "=is title2");
     //this.router.navigate(['/summary'/*, res*/]);
     this.http.post('/api/updateSummary', {user: this.user}).subscribe(res => { this.router.navigate(['/summary'/*, res*/]), console.log(res), (err) => {console.log(err)}})
     //this.http.post('/api/summary', {employeeId: formData.employeeId}).subscribe(res => { this.router.navigate(['/select', res]), (err) => {console.log(err)}})

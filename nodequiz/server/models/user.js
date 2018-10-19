@@ -25,11 +25,13 @@ const User = module.exports = mongoose.model('user', userSchema);
 module.exports.getById = (id, callback) => {
     var query = {userId: id};
     console.log(id + '= id from the user model')
-    User.find(query, callback);
+    User.find(callback);
 }
 
-module.exports.updateById = (userDoc, callback) => {
-    var query = {userDoc};
-    console.log(id + '= id from the user model')
-    User.insertOne(query, callback);
+module.exports.saveResults = (userDoc, callback) => {
+    var doc = new User(userDoc);
+    console.log(userDoc.userId + '= userId from the user model')
+    doc.save(function (err) {
+        if (err) return handleError(err);});
+      
 }
